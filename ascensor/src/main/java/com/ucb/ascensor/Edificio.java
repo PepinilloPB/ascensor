@@ -4,10 +4,11 @@ import java.util.Random;
 
 public class Edificio {
 
-    private int pisos = 10;
+    private int pisos;
     private Ascensor ascensor;
 
     public Edificio(Ascensor ascensor) {
+        this.pisos = 10;
         this.ascensor = ascensor;
     }
 
@@ -38,19 +39,17 @@ public class Edificio {
         seleccionarDestino(destino);
     }
 
-    private void seleccionarDestino(int destino) throws Exception{
+    public void seleccionarDestino(int destino) throws Exception{
         if(ascensor.getPiso() == destino)
-            System.out.println("Mismo piso");
+            //System.out.println("Mismo piso");
+            throw new Exception("No se puede ir al mismo piso");
 
         ascensor.getDestinos().add(0, destino);
         System.out.println(ascensor.getDestinos().toString());
         ascensor.moverse();
     };
 
-    private void llamarAscensor(int number) throws Exception{
-        if(ascensor.getPiso() == number)
-            System.out.println("Mismo piso");
-
+    public void llamarAscensor(int number) throws Exception{
         ascensor.getDestinos().add(number);
         System.out.println(ascensor.getDestinos().toString());
         ascensor.moverse();

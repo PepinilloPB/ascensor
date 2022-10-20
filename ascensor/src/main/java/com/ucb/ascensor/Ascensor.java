@@ -49,9 +49,9 @@ public class Ascensor {
             //System.out.println("No hay destinos");
             throw new Exception("No hay destinos seleccionados");
 
-        if(destinos.iterator().next() == this.piso)
+        //if(destinos.iterator().next() == this.piso)
             //System.out.println("No se puede mover al mismo piso");
-            throw new Exception("El ascensor ya se encuentra en el piso indicado");
+            //throw new Exception("El ascensor ya se encuentra en el piso indicado");
 
         this.piso = destinos.get(0);
         System.out.println("Ascensor en piso " + this.piso);
