@@ -7,6 +7,11 @@ public class Ascensor {
     private int piso;
     private ArrayList<Integer> destinos;
 
+    public Ascensor() {
+        this.piso = 0;
+        this.destinos = new ArrayList<>();
+    }
+
     public Ascensor(int piso) {
         this.piso = piso;
         this.destinos = new ArrayList<>();
@@ -38,13 +43,15 @@ public class Ascensor {
         this.destinos = new ArrayList<>();
     }
 
-    public void moverse(){
+    public void moverse() throws Exception{
 
         if(!destinos.iterator().hasNext())
-            System.out.println("No hay destinos");
+            //System.out.println("No hay destinos");
+            throw new Exception("No hay destinos seleccionados");
 
         if(destinos.iterator().next() == this.piso)
-            System.out.println("No se puede mover al mismo piso");
+            //System.out.println("No se puede mover al mismo piso");
+            throw new Exception("El ascensor ya se encuentra en el piso indicado");
 
         this.piso = destinos.get(0);
         System.out.println("Ascensor en piso " + this.piso);

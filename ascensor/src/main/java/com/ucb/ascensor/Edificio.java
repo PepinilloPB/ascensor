@@ -28,7 +28,7 @@ public class Edificio {
         this.ascensor = ascensor;
     }
 
-    public void crearPersona(int destino){
+    public void crearPersona(int destino) throws Exception{
         Random random = new Random();
         int number = random.nextInt(this.pisos);
 
@@ -38,7 +38,7 @@ public class Edificio {
         seleccionarDestino(destino);
     }
 
-    private void seleccionarDestino(int destino){
+    private void seleccionarDestino(int destino) throws Exception{
         if(ascensor.getPiso() == destino)
             System.out.println("Mismo piso");
 
@@ -47,7 +47,7 @@ public class Edificio {
         ascensor.moverse();
     };
 
-    private void llamarAscensor(int number){
+    private void llamarAscensor(int number) throws Exception{
         if(ascensor.getPiso() == number)
             System.out.println("Mismo piso");
 
