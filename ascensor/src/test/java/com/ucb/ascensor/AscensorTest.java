@@ -3,6 +3,7 @@ package com.ucb.ascensor;
 import static org.junit.Assert.*;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.Rule;
 
@@ -56,5 +57,11 @@ public class AscensorTest {
         pisoInicial = ascensor.getPiso();
         ascensor.moverse();
         assertNotEquals(ascensor.getPiso(), pisoInicial);
+    }
+
+    @Test
+    public void ascensorSinDestinos() throws Exception{
+        ascensor.getDestinos().clear();
+        assertThrows(Exception.class, () -> ascensor.moverse());
     }
 }

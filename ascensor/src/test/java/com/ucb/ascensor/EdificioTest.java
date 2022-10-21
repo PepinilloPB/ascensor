@@ -3,6 +3,7 @@ package com.ucb.ascensor;
 import static org.junit.Assert.*;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.Rule;
 
@@ -53,5 +54,20 @@ public class EdificioTest {
         int destino = 4;
         edificio.crearPersona(destino);
         assertEquals(destino, edificio.getAscensor().getPiso());
+    }
+
+    @Test
+    public void destinoFueraDeLimite() throws Exception{
+        int destinoMenor = -1;
+        assertThrows(Exception.class, () -> edificio.crearPersona(destinoMenor));
+
+        int destinoMayor = 999999;
+        assertThrows(Exception.class, () -> edificio.crearPersona(destinoMayor));
+    }
+
+    @Test
+    public void destinoIgualAPisoActual() throws Exception{
+        int pisoInicial = edificio.getAscensor().getPiso();
+        assertThrows(Exception.class, () -> edificio.seleccionarDestino(pisoInicial));
     }
 }

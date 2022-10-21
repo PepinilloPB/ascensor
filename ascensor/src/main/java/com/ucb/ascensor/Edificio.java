@@ -30,6 +30,9 @@ public class Edificio {
     }
 
     public void crearPersona(int destino) throws Exception{
+        if(this.pisos < destino || destino < 0)
+            //System.out.println("Mismo piso");
+            throw new Exception("Destino fuera de limites");
         Random random = new Random();
         int number = random.nextInt(this.pisos);
 
